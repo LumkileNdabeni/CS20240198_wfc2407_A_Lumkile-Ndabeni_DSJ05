@@ -49,3 +49,9 @@ function reducer(state = initialState, action) {
         return state;
     }
   }
+
+  // Create the store with the tallyReducer
+const store = createStore(tallyReducer);
+
+// Subscribe to log the state changes
+store.subscribe(() => console.log('State:', store.getState()));

@@ -50,8 +50,8 @@ function reducer(state = initialState, action) {
     }
   }
 
-  // Create the store with the tallyReducer
-const store = createStore(tallyReducer);
+  // Create the store with the tally reducer
+  const store = createStore(reducer);
 
 // Subscribe to log the state changes
 store.subscribe(() => console.log('State:', store.getState()));
@@ -59,7 +59,7 @@ store.subscribe(() => console.log('State:', store.getState()));
 // Testing the scenarios
 
 // Scenario 1: Initial State Verification
-console.log('Initial State:', store.getState()); // Expected: { count: 0 }
+console.log('Initial State:', store.getState().count); // Expected: { count: 0 }
 
 // Scenario 2: Incrementing the Counter
 store.dispatch({ type: ADD });                 // Expected: { count: 1 }

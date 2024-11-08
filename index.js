@@ -55,3 +55,18 @@ const store = createStore(tallyReducer);
 
 // Subscribe to log the state changes
 store.subscribe(() => console.log('State:', store.getState()));
+
+// Testing the scenarios
+
+// Scenario 1: Initial State Verification
+console.log('Initial State:', store.getState()); // Expected: { count: 0 }
+
+// Scenario 2: Incrementing the Counter
+store.dispatch({ type: ADD });                 // Expected: { count: 1 }
+store.dispatch({ type: ADD });                 // Expected: { count: 2 }
+
+// Scenario 3: Decrementing the Counter
+store.dispatch({ type: SUBTRACT });            // Expected: { count: 1 }
+
+// Scenario 4: Resetting the Counter
+store.dispatch({ type: RESET });               // Expected: { count: 0 }

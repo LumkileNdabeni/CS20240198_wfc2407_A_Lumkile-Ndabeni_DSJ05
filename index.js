@@ -29,4 +29,23 @@ const initialState = {
         listeners = listeners.filter(l => l !== listener);
       };
     };
-  
+    
+    // Initial dispatch to populate the initial state
+    dispatch({});
+
+    return { getState, dispatch, subscribe };
+  }
+
+  // Reducer function to handle state changes
+function reducer(state = initialState, action) {
+    switch (action.type) {
+      case ADD:
+        return { count: state.count + 1 };
+      case SUBTRACT:
+        return { count: state.count - 1 };
+      case RESET:
+        return { count: 0 };
+      default:
+        return state;
+    }
+  }
